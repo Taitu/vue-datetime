@@ -2,8 +2,12 @@
   <div class="vdatetime-popup">
     <div class="vdatetime-popup__header">
       <div class="vdatetime-popup__title" v-if="title">{{ title }}</div>
-      <div class="vdatetime-popup__year" @click="showYear" v-if="type !== 'time'">{{ year }}</div>
-      <div class="vdatetime-popup__date" @click="showMonth" v-if="type !== 'time'">{{ dateFormatted }}</div>
+      <div class="vdatetime-popup__title vdatetime-popup__title--time" v-if="step == 'time'">
+        <div class="vdatetime-popup__title__hours">Hours</div>
+        <div class="vdatetime-popup__title__minutes">Minutes</div>
+      </div>
+      <div class="vdatetime-popup__year" @click="showYear" v-if="type !== 'time' && step != 'time'">{{ year }}</div>
+      <div class="vdatetime-popup__date" @click="showMonth" v-if="type !== 'time' && step != 'time'">{{ dateFormatted }}</div>
     </div>
     <div class="vdatetime-popup__body">
       <datetime-year-picker
